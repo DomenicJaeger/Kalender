@@ -10,8 +10,9 @@
                         "footer footer";}
 .header{
     grid-column:1/span 2;
-    background-color: chocolate;
-    font-family:sans-serif;
+    background-color:gold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:white;
     align-self:stretch;
     text-align:center;}
 .kalender{
