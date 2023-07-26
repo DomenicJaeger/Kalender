@@ -41,7 +41,7 @@
     line-height:20px;}
 .wochentag{
     grid-area:wochentag;
-    background-color:dimgrey;
+    background-color:darkslateblue;
     color:white;
     font-size:small;
     max-width:80px;
@@ -65,7 +65,7 @@
     line-height:30px;}
 .kw{
     width:40px;
-    background-color:silver;
+    background-color:darkslateblue;
 }
 .kwdate{
     color:black;
