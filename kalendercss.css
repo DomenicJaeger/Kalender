@@ -1,4 +1,4 @@
-#wrapper2{   
+#wrapper{   
     display:grid;
     grid-gap:1rem;
     grid-template-columns:1fr 2fr;
