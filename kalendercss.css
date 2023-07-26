@@ -28,17 +28,20 @@
     font-size:large;
     font-weight:bold;
     text-align:start;
-    color:black;
+    background-color:dimgrey;
+    color:white;
     line-height:20px;}
 #monatheader .right{
     grid-area:mheader2;
     font-size:large;
     font-weight:bold;
+    background-color:dimgrey;
+    color:white;
     text-align:end;
     line-height:20px;}
 .wochentag{
     grid-area:wochentag;
-    background-color: black;
+    background-color:dimgrey;
     color:white;
     font-size:small;
     max-width:80px;
