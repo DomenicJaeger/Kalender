@@ -69,6 +69,7 @@
 .kw{
     width:40px;
     background-color:darkslateblue;
+    color:white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .kwdate{
     color:black;
