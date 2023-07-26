@@ -28,14 +28,14 @@
     font-size:large;
     font-weight:bold;
     text-align:start;
-    background-color:dimgrey;
+    background-color:black;
     color:white;
     line-height:20px;}
 #monatheader .right{
     grid-area:mheader2;
     font-size:large;
     font-weight:bold;
-    background-color:dimgrey;
+    background-color:black;
     color:white;
     text-align:end;
     line-height:20px;}
@@ -49,7 +49,7 @@
     line-height:30px;}
 .samstag{
     grid-area:samstag;
-    background-color:mediumslateblue;
+    background-color:darkslateblue;
     color:white;
     font-size:small;
     max-width:80px;
