@@ -1,0 +1,117 @@
+#wrapper{   
+    display:grid;
+    grid-gap:1rem;
+    grid-template-columns:1fr 2fr;
+    grid-auto-rows:max-content;
+    align-items:baseline;
+    grid-template-areas:"head head"
+                        "kalender info"
+                        "kalender historie"
+                        "footer footer";}
+.header{
+    grid-column:1/span 2;
+    background-color: chocolate;
+    font-family:sans-serif;
+    align-self:stretch;
+    text-align:center;}
+.kalender{
+    grid-area:kalender;
+    grid-column:1;
+    text-align:center;
+    line-height:50px;}
+#monatheader{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-areas:"mheader1 mheader2"}
+#monatheader .left{
+    grid-area:mheader1;
+    font-size:large;
+    font-weight:bold;
+    text-align:start;
+    color:black;
+    line-height:20px;}
+#monatheader .right{
+    grid-area:mheader2;
+    font-size:large;
+    font-weight:bold;
+    text-align:end;
+    line-height:20px;}
+.wochentag{
+    grid-area:wochentag;
+    background-color: black;
+    color:white;
+    font-size:small;
+    max-width:80px;
+    min-width:80px;
+    line-height:30px;}
+.samstag{
+    grid-area:samstag;
+    background-color: blue;
+    color:white;
+    font-size:small;
+    max-width:80px;
+    min-width:80px;
+    line-height:30px;}
+.sonntag{
+    grid-area:sonntag;
+    background-color: red;
+    color:white;
+    font-size:small;
+    max-width:80px;
+    min-width:80px;
+    line-height:30px;}
+.kw{
+    width:40px;
+    background-color:silver;
+}
+.kwdate{
+    color:black;
+    font-size:small;}
+.datum{     
+    color:black;
+    font-size:xx-large;
+    font-weight:bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+.datumsa{   
+    color:blue;
+    font-size:xx-large;
+    font-weight:bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+.datumso{   
+    color:red;
+    font-size:xx-large;
+    font-weight:bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+.nichtmärz{
+    color:grey;
+    font-size:x-large;
+    font-weight:bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+table,th,td{
+    border-collapse:collapse;
+    border:1px solid silver;
+    font-family:sans-serif;}
+.auswahl{
+    border:5px solid gold}
+.infotext{  
+    grid-area:info;
+    grid-column:2;
+    font-family:sans-serif;
+    font-size:larger;
+    /*text-align:left;*/
+    margin-left:2em;
+    margin-right:2em;}
+.historyhead{
+    text-decoration-line: underline;
+    text-align:left;}
+.historie{  
+    grid-area:historie;
+    grid-column:2;
+    font-family:sans-serif;
+    font-size:large;
+    text-align:left;
+    margin-right:2em;}
+.footer{    
+    grid-area:footer;
+    grid-column:1/span 2;
+    font-family:sans-serif;}
