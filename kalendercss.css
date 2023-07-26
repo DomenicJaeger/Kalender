@@ -23,7 +23,9 @@
 #monatheader{
     display:grid;
     grid-template-columns:1fr;
-    grid-template-areas:"mheader1 mheader2"}
+    grid-template-areas:"mheader1 mheader2";
+    border-collapse:collapse;    
+    }
 #monatheader .left{
     grid-area:mheader1;
     font-size:large;
