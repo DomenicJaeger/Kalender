@@ -46,7 +46,7 @@
     line-height:30px;}
 .samstag{
     grid-area:samstag;
-    background-color: blue;
+    background-color:mediumslateblue;
     color:white;
     font-size:small;
     max-width:80px;
@@ -54,7 +54,7 @@
     line-height:30px;}
 .sonntag{
     grid-area:sonntag;
-    background-color: red;
+    background-color:darkslateblue;
     color:white;
     font-size:small;
     max-width:80px;
@@ -73,12 +73,12 @@
     font-weight:bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .datumsa{   
-    color:blue;
+    color:mediumslateblue;
     font-size:xx-large;
     font-weight:bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .datumso{   
-    color:red;
+    color:darkslateblue;
     font-size:xx-large;
     font-weight:bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
