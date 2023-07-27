@@ -78,30 +78,30 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .kwdate{
     color:black;
-    border-radius:5px;
+    border-radius:10px;
     font-size:small;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .datum{     
     color:darkslateblue;
-    border-radius:5px;
+    border-radius:10px;
     font-size:xx-large;
     font-weight:bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .datumsa{   
     color:darkslateblue;
-    border-radius:5px;
+    border-radius:10px;
     font-size:xx-large;
     font-weight:bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .datumso{   
     color:darkslateblue;
-    border-radius:5px;
+    border-radius:10px;
     font-size:xx-large;
     font-weight:bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 .nichtmärz{
     color:grey;
-    border-radius:5px;
+    border-radius:10px;
     font-size:x-large;
     font-weight:bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
