@@ -1,8 +1,6 @@
 #wrapper{   
     display:grid;
-    grid-gap:1rem;
-    background-color:lavenderblush;
-    background-image:linear-gradient(linen, lavender);
+    background-image:linear-gradient(lavender, linen);
     grid-template-columns:1fr 2fr;
     grid-auto-rows:max-content;
     align-items:baseline;
@@ -12,7 +10,7 @@
                         "footer footer";}
 .header{
     grid-column:1/span 2;
-    background-color:linen;
+    background-color:mediumslateblue;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:darkslateblue;
     align-self:stretch;
@@ -20,13 +18,15 @@
 .kalender{
     grid-area:kalender;
     grid-column:1;
+    border-style:hidden;
     text-align:center;
     line-height:50px;}
 #monatheader{
     display:grid;
     grid-template-columns:1fr;
     grid-template-areas:"mheader1 mheader2";
-    border-collapse:collapse;    
+    border-collapse:collapse;
+    margin-top:5px;    
     }
 #monatheader .left{
     grid-area:mheader1;
@@ -34,46 +34,46 @@
     font-weight:bold;
     text-align:start;
     background-color:black;
-    color:white;
+    color:silver;
     line-height:20px;}
 #monatheader .right{
     grid-area:mheader2;
     font-size:large;
     font-weight:bold;
     background-color:black;
-    color:white;
+    color:silver;
     text-align:end;
-    margin-right:30px;
     line-height:20px;}
 .wochentag{
     grid-area:wochentag;
     background-color:darkslateblue;
     color:white;
-    font-size:small;
+    font-size:large;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    max-width:80px;
-    min-width:80px;
+    max-width:100px;
+    min-width:100px;
     line-height:30px;}
 .samstag{
     grid-area:samstag;
     background-color:darkslateblue;
     color:white;
-    font-size:small;
+    font-size:large;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    max-width:80px;
-    min-width:80px;
+    max-width:100px;
+    min-width:100px;
     line-height:30px;}
 .sonntag{
     grid-area:sonntag;
     background-color:darkslateblue;
     color:white;
-    font-size:small;
+    font-size:large;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    max-width:80px;
-    min-width:80px;
+    max-width:100px;
+    min-width:100px;
     line-height:30px;}
 .kw{
-    width:40px;
+    max-width:50px;
+    min-width:50px;
     background-color:darkslateblue;
     color:white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
@@ -103,7 +103,8 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 table,th,td{
     border-collapse:collapse;
-    border:1px solid silver;
+    border-style:hidden;
+    margin-left:12px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color:linen;}
 .auswahl{
@@ -115,8 +116,8 @@ table,th,td{
     color:darkslateblue;
     font-size:larger;
     /*text-align:left;*/
-    margin-left:2em;
-    margin-right:10em;}
+    margin-left:12px;
+    margin-right:12px;}
 .historyhead{
     text-decoration-line: underline;
     text-align:left;
@@ -128,8 +129,14 @@ table,th,td{
     font-size:large;
     color:darkslateblue;
     text-align:left;
-    margin-right:10em;}
+    margin-right:12px;}
+.nichtmärz:hover{background-color:khaki;}
+.datum:hover{background-color:gold;}
+.datumsa:hover{background-color:gold;}
+.datumso:hover{background-color:gold;}
 .footer{    
     grid-area:footer;
     grid-column:1/span 2;
     font-family:sans-serif;}
+/*
+    background-image:url("C:\Users\DomenicJaeger\Pictures\Saved Pictures/cherry01.jpg");*/
