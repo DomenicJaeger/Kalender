@@ -2,6 +2,7 @@
     display:grid;
     grid-gap:1rem;
     background-color:lavenderblush;
+    background-image:linear-gradient(linen, lavender);
     grid-template-columns:1fr 2fr;
     grid-auto-rows:max-content;
     align-items:baseline;
