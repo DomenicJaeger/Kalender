@@ -1,9 +1,9 @@
 #wrapper{   
     display:grid;
-    background-image:linear-gradient(lavender, linen);
+    background-image:linear-gradient(lavender, lavender);
     grid-template-columns:1fr 2fr;
     grid-auto-rows:max-content;
-    align-items:baseline;
+    align-items:center;
     grid-template-areas:"head head"
                         "kalender info"
                         "kalender historie"
@@ -14,20 +14,21 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:darkslateblue;
     align-self:stretch;
-    text-align:center;}
+    text-align:center;
+    text-shadow:0px 2px 3px lavender;}
 .kalender{
     grid-area:kalender;
     grid-column:1;
     border-style:hidden;
     text-align:center;
+    margin-bottom:12px;
     line-height:50px;}
 #monatheader{
     display:grid;
     grid-template-columns:1fr;
     grid-template-areas:"mheader1 mheader2";
     border-collapse:collapse;
-    margin-top:5px;    
-    }
+    margin-top:5px;    }
 #monatheader .left{
     grid-area:mheader1;
     font-size:large;
@@ -35,7 +36,8 @@
     text-align:start;
     background-color:black;
     color:silver;
-    line-height:20px;}
+    line-height:20px;
+    padding-left:10px;}
 #monatheader .right{
     grid-area:mheader2;
     font-size:large;
@@ -43,7 +45,8 @@
     background-color:black;
     color:silver;
     text-align:end;
-    line-height:20px;}
+    line-height:20px;
+    padding-right:10px;}
 .wochentag{
     grid-area:wochentag;
     background-color:darkslateblue;
@@ -107,33 +110,45 @@ table,th,td{
     margin-left:12px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color:linen;}
-.auswahl{
-    border:5px solid gold}
 .infotext{  
     grid-area:info;
     grid-column:2;
-    font-family:sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style:italic;
     color:darkslateblue;
     font-size:larger;
-    /*text-align:left;*/
+    margin-bottom:-10px;
     margin-left:12px;
-    margin-right:12px;}
+    margin-right:12px;
+    background:lavender;
+    border-left:7px solid darkslateblue;
+    padding-left:6px;}
 .historyhead{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration-line: underline;
     text-align:left;
-    color:darkslateblue;}
+    color:linen;
+    padding-top:-24px;}
 .historie{  
     grid-area:historie;
     grid-column:2;
-    font-family:sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size:large;
-    color:darkslateblue;
-    text-align:left;
-    margin-right:12px;}
-.nichtmärz:hover{background-color:khaki;}
-.datum:hover{background-color:gold;}
-.datumsa:hover{background-color:gold;}
-.datumso:hover{background-color:gold;}
+    color:linen;
+    background-color:darkslateblue;
+    text-align:left;align-items:center;
+    margin-right:12px;
+    margin-left:12px;
+    margin-bottom:24px;
+    padding-bottom:24px;}
+.nichtmärz:hover{
+    background-color:khaki;}
+.datum:hover{
+    background-color:gold;}
+.datumsa:hover{
+    background-color:gold;}
+.datumso:hover{
+    background-color:gold;}
 .footer{    
     grid-area:footer;
     grid-column:1/span 2;
