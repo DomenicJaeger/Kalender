@@ -1,13 +1,15 @@
-#wrapper{   
+html, body{
+    margin:0;}
+#wrapper{
     display:grid;
     background-image:linear-gradient(lavender, lavender);
     grid-template-columns:1fr 2fr;
     grid-auto-rows:max-content;
     align-items:center;
+    border-radius:20px;
     grid-template-areas:"head head"
                         "kalender info"
-                        "kalender historie"
-                        "footer footer";}
+                        "kalender historie";}
 .header{
     grid-column:1/span 2;
     background-color:mediumslateblue;
@@ -15,14 +17,17 @@
     color:darkslateblue;
     align-self:stretch;
     text-align:center;
-    text-shadow:0px 2px 3px lavender;}
+    border-radius:20px 20px 0px 0px;}
 .kalender{
     grid-area:kalender;
     grid-column:1;
     border-style:hidden;
     text-align:center;
-    margin-bottom:12px;
-    line-height:50px;}
+    margin-top:24px;
+    margin-bottom:24px;
+    margin-left:24px;
+    line-height:50px;
+    box-shadow:10px 10px 10px darkgrey;}
 #monatheader{
     display:grid;
     grid-template-columns:1fr;
@@ -121,9 +126,10 @@ table,th,td{
     font-style:italic;
     color:darkslateblue;
     font-size:larger;
+    margin-top:24px;
     margin-bottom:-10px;
-    margin-left:12px;
-    margin-right:12px;
+    margin-left:24px;
+    margin-right:24px;
     background:lavender;
     border-left:7px solid darkslateblue;
     padding-left:6px;}
@@ -132,7 +138,8 @@ table,th,td{
     text-decoration-line: underline;
     text-align:left;
     color:linen;
-    padding-top:-24px;}
+    padding-top:-24px;
+    text-shadow:0px 2px 3px lavender;}
 .historie{  
     grid-area:historie;
     grid-column:2;
@@ -141,10 +148,12 @@ table,th,td{
     color:linen;
     background-color:darkslateblue;
     text-align:left;align-items:center;
-    margin-right:12px;
-    margin-left:12px;
+    margin-right:24px;
+    margin-left:24px;
     margin-bottom:24px;
-    padding-bottom:24px;}
+    padding-bottom:24px;
+    padding-right:12px;
+    border-radius:10px;}
 .nichtmärz:hover{
     background-color:khaki;}
 .datum:hover{
@@ -153,9 +162,5 @@ table,th,td{
     background-color:gold;}
 .datumso:hover{
     background-color:gold;}
-.footer{    
-    grid-area:footer;
-    grid-column:1/span 2;
-    font-family:sans-serif;}
 /*
     background-image:url("C:\Users\DomenicJaeger\Pictures\Saved Pictures/cherry01.jpg");*/
