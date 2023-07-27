@@ -111,18 +111,21 @@ table,th,td{
     grid-area:info;
     grid-column:2;
     font-family:sans-serif;
+    color:darkslateblue;
     font-size:larger;
     /*text-align:left;*/
     margin-left:2em;
     margin-right:10em;}
 .historyhead{
     text-decoration-line: underline;
-    text-align:left;}
+    text-align:left;
+    color:darkslateblue;}
 .historie{  
     grid-area:historie;
     grid-column:2;
     font-family:sans-serif;
     font-size:large;
+    color:darkslateblue;
     text-align:left;
     margin-right:10em;}
 .footer{    
