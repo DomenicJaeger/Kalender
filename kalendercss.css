@@ -37,7 +37,9 @@
     background-color:black;
     color:silver;
     line-height:20px;
-    padding-left:10px;}
+    padding-left:10px;
+    padding-top:10px;
+    padding-bottom:10px;}
 #monatheader .right{
     grid-area:mheader2;
     font-size:large;
@@ -46,7 +48,9 @@
     color:silver;
     text-align:end;
     line-height:20px;
-    padding-right:10px;}
+    padding-right:10px;
+    padding-top:10px;
+    padding-bottom:10px;}
 .wochentag{
     grid-area:wochentag;
     background-color:darkslateblue;
