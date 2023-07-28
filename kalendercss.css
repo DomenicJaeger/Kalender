@@ -1,5 +1,3 @@
-html, body{
-    margin:0;}
 #wrapper{
     display:grid;
     background-image:linear-gradient(lavender, lavender);
@@ -12,9 +10,9 @@ html, body{
                         "kalender historie";}
 .header{
     grid-column:1/span 2;
-    background-color:mediumslateblue;
+    background-color:darkslateblue;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:darkslateblue;
+    color:white;
     align-self:stretch;
     text-align:center;
     border-radius:20px 20px 0px 0px;}
@@ -33,14 +31,14 @@ html, body{
     grid-template-columns:1fr;
     grid-template-areas:"mheader1 mheader2";
     border-collapse:collapse;
-    margin-top:5px;    }
+    margin-top:5px;}
 #monatheader .left{
     grid-area:mheader1;
     font-size:large;
     font-weight:bold;
     text-align:start;
     background-color:black;
-    color:silver;
+    color:white;
     line-height:20px;
     padding-left:10px;
     padding-top:10px;
@@ -50,7 +48,7 @@ html, body{
     font-size:large;
     font-weight:bold;
     background-color:black;
-    color:silver;
+    color:white;
     text-align:end;
     line-height:20px;
     padding-right:10px;
@@ -162,5 +160,16 @@ table,th,td{
     background-color:gold;}
 .datumso:hover{
     background-color:gold;}
-/*
-    background-image:url("C:\Users\DomenicJaeger\Pictures\Saved Pictures/cherry01.jpg");*/
+/*meta query für überlappende zellen
+@media(max-width:2000px){#wrapper{
+    display:grid;
+    background-image:linear-gradient(lavender, lavender);
+    grid-template-columns:1fr;
+    grid-auto-rows:max-content;
+    align-items:center;
+    border-radius:20px;
+    grid-template-areas:"head"
+                        "kalender"
+                        "kalender"
+                        "info"
+                        "historie";}}*/
