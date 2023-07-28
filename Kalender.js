@@ -1,4 +1,6 @@
-window.onload="main()";
-function main(){
-    alert("Hallo Welt")
-}
+/*window.onload = function() {
+    alert("hello!");
+}*/
+window.onload="komisch()";
+function komisch(){
+alert("sehr seltsam");}

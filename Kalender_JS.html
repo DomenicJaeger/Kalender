@@ -2,12 +2,11 @@
 <html>
     <head>
     <link rel="stylesheet" type="text/css" href="kalendercss.css">
-    <script src="Kalender.js"></script>
     </head>
         <body>
             <div id="wrapper">
-                <!--<meta name="viewport" content="width=device-width, initial-scale=1"
-                    meta query für überlappende zellen>-->
+                <meta name="viewport" content="width=device-width, initial-scale=1"
+                    meta query für überlappende zellen>
                 <div class="header">
 
                     <h1>KALENDERBLATT VOM 17.03.2022
@@ -83,7 +82,7 @@
                         <td class="nichtmärz">3</td>
                     </tr>
                 </table>
-                <p class="infotext">Der 17.03.2022 ist ein Donnerstag und zwar der dritte Donnerstag des Monats März im Jahr 2022. Es handelt sich nicht um einen gesetzlichen
+                <p class="infotext">Der 17.03.2022 ist ein Donnerstag und zwar der dritte Donnerstag des Monats März im Jahr <span id="infotext_year">2022</span>. Es handelt sich nicht um einen gesetzlichen
                     Feiertag. Der letzte Feiertag vor dem 17.03.2022 war der 01.01.2022 (Neujahr) und der nächste Feiertag ist der 15.04.2022 (Karfreitag).
                 </p>
                 
@@ -105,5 +104,6 @@
                         <li>1715: Im Hardtwald wird der Grundstein für das Schloss Karlsruhe und damit der Stadt Karlsruhe gelegt.</li>
                     </ul>
             </div>
+            <script src="Kalender.js"></script>
         </body>
 </html>
