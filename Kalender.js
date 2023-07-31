@@ -11,7 +11,7 @@ function getWeekOfMonth(date) {
     let prefixes = ['0', '1', '2', '3', '4', '5'];
     return (parseInt(prefixes[0 | adjustedDate / 7])+1);
 }
-document.querySelectorAll('p').innerHTML='hallo'
+//document.querySelectorAll('p').innerHTML='hallo'
 document.getElementById("infotext_year").innerHTML=year;
 document.getElementById("dateDa").innerHTML=dateC;
 document.getElementsByClassName("dateD").innerHTML=dateB;
