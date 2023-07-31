@@ -2,6 +2,7 @@ let weekday=["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Sa
 let monthName=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
 let date=new Date();
 let dateB=date.toLocaleDateString("de-De");
+let dateC=date.toLocaleDateString("de-De");
 let year=new Date().getFullYear();
 let month=monthName[date.getMonth()];
 let day=weekday[date.getDay()];
@@ -12,6 +13,7 @@ function getWeekOfMonth(date) {
 }
 
 document.getElementById("infotext_year").innerHTML=year;
+document.getElementById("dateDa").innerHTML=dateC;
 document.getElementById("dateD").innerHTML=dateB;
 document.getElementById("weekdayD").innerHTML=day;
 document.getElementById("weekdayDa").innerHTML=day;
