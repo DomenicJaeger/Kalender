@@ -11,10 +11,10 @@ function getWeekOfMonth(date) {
     let prefixes = ['0', '1', '2', '3', '4', '5'];
     return (parseInt(prefixes[0 | adjustedDate / 7])+1);
 }
-
+document.querySelectorAll('p').innerHTML='hallo'
 document.getElementById("infotext_year").innerHTML=year;
 document.getElementById("dateDa").innerHTML=dateC;
-document.getElementById("dateD").innerHTML=dateB;
+document.getElementsByClassName("dateD").innerHTML=dateB;
 document.getElementById("weekdayD").innerHTML=day;
 document.getElementById("weekdayDa").innerHTML=day;
 document.getElementById("weekInMonth").innerHTML=(getWeekOfMonth(date));
