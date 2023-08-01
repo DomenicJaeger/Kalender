@@ -18,7 +18,7 @@ function getWeekOfMonth(date) {
 }
 /*public holiday calculation*/
 function holidays(){
-    let  d=  new Date(2023,11,25);
+    let  d=  new Date();
     let year = d.getFullYear();
     let listholidays=[
         newYear = new Date(year,0,1),       //fix date: New Year
