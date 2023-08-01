@@ -10,7 +10,7 @@ let year=new Date().getFullYear();
 let month=monthName[date.getMonth()];
 let day=weekday[date.getDay()];
 let daylist=new Date().getDate();
-/*this function calculates wich weekday of the month it is (the 1st, 2nd ,3rd Tuesday for example)*/
+/*the following function calculates wich weekday of the month it is (the 1st, 2nd ,3rd Tuesday for example)*/
 function getWeekOfMonth(date) {
     let adjustedDate = date.getDate()+ date.getDay();
     let prefixes = ['0', '1', '2', '3', '4', '5'];
@@ -21,20 +21,22 @@ function holidays(){
     let  d=  new Date();
     let year = d.getFullYear();
     let listholidays=[
-        newYear = new Date(year,0,1),       //fix date: New Year
-        dayOfWork =    new Date(year,4,1),  //fix date: Workers' Day
-        christmas = new Date(year,11,25),   //fix date: Christmas
+        newYear =       new Date(year,0,1),     //fix date: new year
+        dayOfWork =     new Date(year,4,1),     //fix date: workers' day
+        unity =         new Date(year,9,3),     //fix date: german unity day
+        christmas =     new Date(year,11,25),   //fix date: christmas
+        christmas2 =    new Date(year,11,26),   //fix date: second day of christmas
     ];
     for (var i = 0; i < listholidays.length; i++){
         if (d.getTime() == listholidays[i].getTime()){
-            document.getElementById("holidayYesNoD").innerHTML=" ";
+            document.getElementById("holidayYesNoD").innerHTML="1";
             return;
          }
-        document.getElementById("holidayYesNo").innerHTML="nicht";
+        document.getElementById("holidayYesNoD").innerHTML="nicht";
          
     }      
 }
-
+console.log(holidays)
 /*replacement texts*/
 document.getElementById("infotext_year").innerHTML=year;
 document.getElementById("dateDa").innerHTML=dateA;
