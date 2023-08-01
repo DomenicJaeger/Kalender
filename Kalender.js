@@ -1,6 +1,8 @@
+
+
 let weekday=["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
 let monthName=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
-let date=new Date();
+let date = new Date();
 let dateA=date.toLocaleDateString("de-De");
 let dateB=date.toLocaleDateString("de-De");
 let dateC=date.toLocaleDateString("de-De");
@@ -16,8 +18,8 @@ function getWeekOfMonth(date) {
 }
 /*public holiday calculation*/
 function holidays(){
-    var d=new Date(2023,11,25);
-    var year=d.getFullYear();
+    let  d=  new Date(2023,11,25);
+    let year = d.getFullYear();
     let listholidays=[
         newYear = new Date(year,0,1),       //fix date: New Year
         dayOfWork =    new Date(year,4,1),  //fix date: Workers' Day
