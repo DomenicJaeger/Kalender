@@ -15,14 +15,23 @@ function getWeekOfMonth(date) {
     return (parseInt(prefixes[0 | adjustedDate / 7])+1);
 }
 /*public holiday calculation*/
-let holiday={
-        "0,1":"Neujahr",
-        "4,1":"Tag der Arbeit",
-        "9,3":"Tag der Deutschen Einheit",
-        "11,25":"Erster Weihnachtstag",
-        "11,26":"Zweiter Weihnachtstag",};
-
-        
+function holidays(){
+    var d=new Date(2023,11,25);
+    var year=d.getFullYear();
+    let listholidays=[
+        newYear = new Date(year,0,1),       //fix date: New Year
+        dayOfWork =    new Date(year,4,1),  //fix date: Workers' Day
+        christmas = new Date(year,11,25),   //fix date: Christmas
+    ];
+    for (var i = 0; i < listholidays.length; i++){
+        if (d.getTime() == listholidays[i].getTime()){
+            document.getElementById("holidayYesNoD").innerHTML=" ";
+            return;
+         }
+        document.getElementById("holidayYesNo").innerHTML="nicht";
+         
+    }      
+}
 
 /*replacement texts*/
 document.getElementById("infotext_year").innerHTML=year;
