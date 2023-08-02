@@ -1,8 +1,6 @@
-
-
 let weekday=["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
 let monthName=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
-let date = new Date();
+let date = new Date(2023,0,1);
 let dateA=date.toLocaleDateString("de-De");
 let dateB=date.toLocaleDateString("de-De");
 let dateC=date.toLocaleDateString("de-De");
@@ -21,22 +19,21 @@ function holidays(){
     let  d=  new Date();
     let year = d.getFullYear();
     let listholidays=[
-        newYear =       new Date(year,0,1),     //fix date: new year
         dayOfWork =     new Date(year,4,1),     //fix date: workers' day
+        newYear =       new Date(year,0,1),     //fix date: new year
         unity =         new Date(year,9,3),     //fix date: german unity day
         christmas =     new Date(year,11,25),   //fix date: christmas
         christmas2 =    new Date(year,11,26),   //fix date: second day of christmas
     ];
     for (var i = 0; i < listholidays.length; i++){
         if (d.getTime() == listholidays[i].getTime()){
-            document.getElementById("holidayYesNoD").innerHTML="1";
-            return;
+            return document.getElementById("holidayYesNo").innerHTML="um";
          }
-        document.getElementById("holidayYesNoD").innerHTML="nicht";
+         document.getElementById("holidayYesNo").innerHTML="nicht um";
          
     }      
-}
-console.log(holidays)
+};
+//console.log(holidays)
 /*replacement texts*/
 document.getElementById("infotext_year").innerHTML=year;
 document.getElementById("dateDa").innerHTML=dateA;
@@ -48,8 +45,7 @@ document.getElementById("weekInMonth").innerHTML=(getWeekOfMonth(date));
 document.getElementById("monthID").innerHTML=month;
 document.getElementById("lustig").innerHTML=daylist;
 document.getElementById("unlustig").innerHTML=month;
-//solve this next
-//document.getElementById("holidayYesNoD").innerHTML=
+holidays();
 
 /*Feiertage in Hessen
     1. Januar Neujahr fix
