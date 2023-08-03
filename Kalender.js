@@ -1,6 +1,7 @@
+/*html Infotext*/
 let weekday=["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
 let monthName=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
-let date = new Date(2023,3,7);                  //base date for most infotext changes | adjust () for testing or () remains empty for current date
+let date = new Date(2022,2,6);                  //base date for most infotext changes | adjust () for testing or () remains empty for current date
 let dateA=date.toLocaleDateString("de-De");
 let dateB=date.toLocaleDateString("de-De");
 let dateC=date.toLocaleDateString("de-De");
@@ -9,12 +10,14 @@ let month=monthName[date.getMonth()];
 let day=weekday[date.getDay()];
 let daylist=new Date().getDate();
 
-/*the following function calculates wich weekday of the month it is (the 1st, 2nd ,3rd Tuesday of the month for example)*/
+/*funktioniert nicht wie gedacht. donnerstag freitag und samstag liegen immer um einen zu hoch*/
+/*||||NEU MACHEN||||*/
 function getWeekOfMonth(date) {
     let adjustedDate = date.getDate()+ date.getDay();
     let prefixes = ['0', '1', '2', '3', '4', '5'];
     return (parseInt(prefixes[0 | adjustedDate / 7])+1);
 }
+console.log(adjustedDate)
 /*the following function determines the date of easter;
 provided by stefan | quote: "no idea how it works, but it works" | neither do i*/
 function getEasterSunday(year) {
@@ -45,7 +48,7 @@ function getEasterSunday(year) {
 }
 /*public holiday calculation*/
 function holidays(){
-    let  d=  new Date(2023,3,10);                //ajustable date for holiday testing () remains empty for current day
+    let  d=  new Date(2023,7,30);                //ajustable date for holiday testing () remains empty for current day
     let year = d.getFullYear();
     easter =        getEasterSunday(year);  //easter date determined by function getEasterSunday
     let listholidays=[
@@ -56,11 +59,11 @@ function holidays(){
         christmas2 =    new Date(year,11,26),   //fix date: second day of christmas
         easter =        easter,
         easter2 =       new Date(year,easter.getMonth(),easter.getDate()+1),    //second day of easter easter+1
-        goodFriday =    new Date(year,0,1,),    //good friday easter-2
-        ascension =     new Date(year,4,18),    //ascension day easter+39
-        pentecoast =    new Date(year,4,28),    //first day of pentecoast easter+49
-        pentecoast2 =   new Date(year,4,29),    //second day of pentecoast easter +50
-        corpusChristi = new Date(year,5,8),     //corpus christi easter+60
+        goodFriday =    new Date(year,easter.getMonth(),easter.getDate()-2),    //good friday easter-2
+        ascension =     new Date(year,easter.getMonth(),easter.getDate()+39),    //ascension day easter+39
+        pentecoast =    new Date(year,easter.getMonth(),easter.getDate()+49),    //first day of pentecoast easter+49
+        pentecoast2 =   new Date(year,easter.getMonth(),easter.getDate()+50),    //second day of pentecoast easter +50
+        corpusChristi = new Date(year,easter.getMonth(),easter.getDate()+60),     //corpus christi easter+60
         
     ];
     console.log(easter2); 
