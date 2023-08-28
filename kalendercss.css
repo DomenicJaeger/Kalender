@@ -16,6 +16,9 @@
     align-self:stretch;
     text-align:center;
     border-radius:20px 20px 0px 0px;}
+.selected {
+    background-color:blueviolet;
+}
 .kalender{
     grid-area:kalender;
     grid-column:1;
