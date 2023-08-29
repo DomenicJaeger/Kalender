@@ -1,18 +1,18 @@
 window.onload = function () {
     changeTime(new Date());
     //Buttons funktionieren noch nicht wie gewünscht
-    document.getElementById("prevMonthButton").addEventListener("click", function () {
+    /*document.getElementById("prevMonthButton").addEventListener("click", function () {
         changeMonth(-1);
     });
     document.getElementById("nextMonthButton").addEventListener("click", function () {
         changeMonth(1);
-    });
+    });*/
 }
 
 function changeTime(newDate) {
     let weekday = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
     let monthName = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-    let date = newDate;
+    let date = new Date(newDate);
     let dateA = date.toLocaleDateString("de-De");
     let dateB = date.toLocaleDateString("de-De");
     let dateC = date.toLocaleDateString("de-De");
@@ -34,7 +34,7 @@ function changeTime(newDate) {
     //kalenderblatt wird gezeichnet
     document.getElementById("calendarTableCaption").innerHTML = html;
 
-    getWeekOfMonth();
+    getWeekOfMonth(date);
     holidays();
     lastHoliday();
 };
@@ -42,8 +42,8 @@ function changeTime(newDate) {
 function getCalendarTableCaption(date) {
     //Inhalt ändert sich nur an zwei stellen
     let html =  `<table class="kalender">`;
-    html +=         `<button id="prevMonthButton">Vorheriger Monat</button>`;
-    html +=         `<button id="nextMonthButton">Nächster Monat</button>`;
+    html +=         `<button onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()-1,1).getTime()})">Vorheriger Monat</button>`;
+    html +=         `<button onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()+1,1).getTime()})">Nächster Monat</button>`;
     html +=         `<caption colspan="8">`;
     html +=             `<div id="monatheader">`;
     html +=                 `<div class="left">`;
@@ -88,7 +88,6 @@ function getCalendarTableCaption(date) {
 
     //Schleife Tage des Vormonats
     for (let i=dayone; i>1;i--) {
-        console.log(i);
         html += `<td>${monthlastdate-i+2}</td>`;
     }
     //Schleife Tage dieses Monats
@@ -134,6 +133,7 @@ function getCalendarTableCaption(date) {
     return html;
 }
 //Buttons | funktionieren nocht nicht wie gewünscht
+//Ich glaube das Problem liegt daran dass er sich bei currentDate immer wieder das aktuelle Datum zieht
 function changeMonth(change) {
     let currentDate = new Date();
     let newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + change, 1);
@@ -155,8 +155,7 @@ function getMonthGerman(month) {
 }
 
 /*der wievielte Montag, Dienstag usw. des Monats*/
-function getWeekOfMonth() {
-    let date = new Date();
+function getWeekOfMonth(date) {
     if (date.getDate() <= 7) {
         document.getElementById("weekInMonth").innerHTML = "erste";
     }
