@@ -12,7 +12,7 @@ window.onload = function () {
 function changeTime(newDate) {
     let weekday = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
     let monthName = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-    let date = newDate;                  //base date for most infotext changes | adjust () for testing or () remains empty for current date
+    let date = newDate;
     let dateA = date.toLocaleDateString("de-De");
     let dateB = date.toLocaleDateString("de-De");
     let dateC = date.toLocaleDateString("de-De");
@@ -20,7 +20,9 @@ function changeTime(newDate) {
     let month = monthName[date.getMonth()];
     let day = weekday[date.getDay()];
     let daylist = new Date().getDate();
-    let html = getCalendarTableCaption(date)/*+getCalendarTableHead()+getCalendarTableBody()*/;
+    let html = getCalendarTableCaption(date);
+
+    //text der in html ersetzt wird
     document.getElementById("infotext_year").innerHTML = (date.getFullYear());
     document.getElementById("dateDa").innerHTML = dateA;
     document.getElementById("dateDb").innerHTML = dateB;
@@ -29,40 +31,43 @@ function changeTime(newDate) {
     document.getElementById("weekdayDa").innerHTML = day;
     document.getElementById("monthID").innerHTML = month;
     document.getElementById("lustig").innerHTML = (date.getDate()) + "." + month;
+    //kalenderblatt wird gezeichnet
     document.getElementById("calendarTableCaption").innerHTML = html;
 
     getWeekOfMonth();
     holidays();
     lastHoliday();
 };
-/*Kalender aus html übernommen| noch nicht vollständig dynamisiert*/
+//Kalenderblatt
 function getCalendarTableCaption(date) {
-    let html = `<table class="kalender">`;
-    html += `<button id="prevMonthButton">Vorheriger Monat</button>`;
-    html += `<button id="nextMonthButton">Nächster Monat</button>`;
-    html += `<caption colspan="8">`;
-    html += `<div id="monatheader">`;
-    html += `<div class="left">`;
-    html += getMonthGerman(date.getMonth());
-    html += `</div>`;
-    html += `<div class="right">`;
-    html += date.getFullYear();
-    html += `</div>`;
-    html += `</div>`;
-    html += `</caption>`;
-    html += `<thead>`;
-    html += `<tr>`;
-    html += `<div id="tage">`;
-    html += `<th class="wochentag"><abbr title="Montag">MO</abbr></th>`;
-    html += `<th class="wochentag"><abbr title="Dienstag">DI</abbr></th>`;
-    html += `<th class="wochentag"><abbr title="Mittwoch">MI</abbr></th>`;
-    html += `<th class="wochentag"><abbr title="Donnerstag">DO</abbr></th>`;
-    html += `<th class="wochentag"><abbr title="Freitag">FR</abbr></th>`;
-    html += `<th class="samstag"><abbr title="Samstag">SA</abbr></th>`;
-    html += `<th class="sonntag"><abbr title="Sonntag">SO</abbr></th>`;
-    html += `</div>`;
-    html += `</tr>`;
-    html += `</thead>`;
+    //Inhalt ändert sich nur an zwei stellen
+    let html =  `<table class="kalender">`;
+    html +=         `<button id="prevMonthButton">Vorheriger Monat</button>`;
+    html +=         `<button id="nextMonthButton">Nächster Monat</button>`;
+    html +=         `<caption colspan="8">`;
+    html +=             `<div id="monatheader">`;
+    html +=                 `<div class="left">`;
+    html +=                     getMonthGerman(date.getMonth());
+    html +=                 `</div>`;
+    html +=                 `<div class="right">`;
+    html +=                     date.getFullYear();
+    html +=                 `</div>`;
+    html +=             `</div>`;
+    html +=         `</caption>`;
+    html +=         `<thead>`;
+    html +=             `<tr>`;
+    html +=                 `<div id="tage">`;
+    html +=                     `<th class="wochentag"><abbr title="Montag">MO</abbr></th>`;
+    html +=                     `<th class="wochentag"><abbr title="Dienstag">DI</abbr></th>`;
+    html +=                     `<th class="wochentag"><abbr title="Mittwoch">MI</abbr></th>`;
+    html +=                     `<th class="wochentag"><abbr title="Donnerstag">DO</abbr></th>`;
+    html +=                     `<th class="wochentag"><abbr title="Freitag">FR</abbr></th>`;
+    html +=                     `<th class="samstag"><abbr title="Samstag">SA</abbr></th>`;
+    html +=                     `<th class="sonntag"><abbr title="Sonntag">SO</abbr></th>`;
+    html +=                 `</div>`;
+    html +=             `</tr>`;
+    html +=         `</thead>`;
+
     //erster Tag des Monats
     let dayone = new Date(date.getFullYear(),date.getMonth(),1).getDay();
     if (dayone==0) {
@@ -80,6 +85,7 @@ function getCalendarTableCaption(date) {
 
     //letztes Datum des vorherigen Monats
     let monthlastdate = new Date(date.getFullYear(),date.getMonth(),0).getDate();
+
     //Schleife Tage des Vormonats
     for (let i=dayone; i>1;i--) {
         console.log(i);
@@ -88,11 +94,13 @@ function getCalendarTableCaption(date) {
     //Schleife Tage dieses Monats
     for (let i=1;i<=lastdate;i++) {
         let currentDay = new Date(date.getFullYear(), date.getMonth(), i);
+        //für grafische änderungen im css
         //let classAttribute = "";
         if(currentDay.getDay() == 1) {
             html += `<tr>`;
         }
         /*
+        //für grafische änderungen im css
         //check day and add class attribute
         //if today
         if (currentDay.getTime() == new Date()) {
@@ -122,77 +130,31 @@ function getCalendarTableCaption(date) {
     for (let i=dayend;i<7;i++) {
         html += `<td>${i-dayend+1}</td>`;
     }
-
-    /*html += `<tr>`;
-    html += `<td class="nichtmärz">28</td>`;
-    html += `<td class="datum">1</td>`;
-    html += `<td class="datum">2</td>`;
-    html += `<td class="datum">3</td>`;
-    html += `<td class="datum">4</td>`;
-    html += `<td class="datumsa">5</td>`;
-    html += `<td class="datumso">6</td>`;
-    html += `</tr>`;
-    html += `<tr>`;
-    html += `<td class="datum">7</td>`;
-    html += `<td class="datum">8</td>`;
-    html += `<td class="datum">9</td>`;
-    html += `<td class="datum">10</td>`;
-    html += `<td class="datum">11</td>`;
-    html += `<td class="datumsa">12</td>`;
-    html += `<td class="datumso">13</td>`;
-    html += `</tr>`;
-    html += `<tr>`;
-    html += `<td class="datum">14</td>`;
-    html += `<td class="datum">15</td>`;
-    html += `<td class="datum">16</td>`;
-    html += `<td class="datum auswahl">17</td>`;
-    html += `<td class="datum">18</td>`;
-    html += `<td class="datumsa">19</td>`;
-    html += `<td class="datumso">20</td>`;
-    html += `</tr>`;
-    html += `<tr>`;
-    html += `<td class="datum">21</td>`;
-    html += `<td class="datum">22</td>`;
-    html += `<td class="datum">23</td>`;
-    html += `<td class="datum">24</td>`;
-    html += `<td class="datum">25</td>`;
-    html += `<td class="datumsa">26</td>`;
-    html += `<td class="datumso">27</td>`;
-    html += `</tr>`;
-    html += `<tr>`;
-    html += `<td class="datum">28</td>`;
-    html += `<td class="datum">29</td>`;
-    html += `<td class="datum">30</td>`;
-    html += `<td class="datum">31</td>`;
-    html += `<td class="nichtmärz">1</td>`;
-    html += `<td class="nichtmärz">2</td>`;
-    html += `<td class="nichtmärz">3</td>`;
-    html += `</tr>`;
-    html += `</table>`;*/
+    html += `</table>`;
     return html;
 }
-//Buttons funktionieren nocht nicht wie gewünscht
+//Buttons | funktionieren nocht nicht wie gewünscht
 function changeMonth(change) {
     let currentDate = new Date();
     let newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + change, 1);
     changeTime(newDate);
 }
 
-//Auswahl eines einzelnen Tages im Kalenderblatt
+//Auswahl eines einzelnen Tages im Kalenderblatt | funktioniert nocht nicht wie gewünscht
 function selectDay(clickedDay) {
     let allDays = document.querySelectorAll(".calendarDay");
     allDays.forEach(day => day.classList.remove("selected"));
     clickedDay.classList.add("selected");
 }
 
+//monatsname auf deutsch ermitteln
 function getMonthGerman(month) {
     let monthName = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
         "August", "September", "Oktober", "November", "Dezember"];
     return monthName[month];
 }
 
-/*the following function determines if 
-the day of the week is the 1st, 2nd, 3rd, 4th or 5th of its kind in this month*/
+/*der wievielte Montag, Dienstag usw. des Monats*/
 function getWeekOfMonth() {
     let date = new Date();
     if (date.getDate() <= 7) {
@@ -213,8 +175,7 @@ function getWeekOfMonth() {
     else document.getElementById("weekInMonth").innerHTML = "unbekannte";
 };
 
-/*the following function determines the date of easter;
-provided by stefan | quote: "no idea how it works, but it works" | neither do i*/
+/*Osterberrechnung*/
 function getEasterSunday(year) {
     const a = year % 19;
     const b = year % 4;
@@ -242,26 +203,27 @@ function getEasterSunday(year) {
     return easterSundayDate;
 };
 
-/*public holiday calculation*/
+/*Feiertage*/
 function holidays() {
     let date = new Date();
     let year = date.getFullYear();
-    easter = getEasterSunday(year);  //easter date determined by function getEasterSunday
+    easter = getEasterSunday(year);  //Ostersonntag
     let listholidays = [
-        newYear = new Date(year, 0, 1),     //fix date: new year
+        newYear = new Date(year, 0, 1),     //fixes Datum Neujahr
         easter = easter,
-        easter2 = new Date(year, easter.getMonth(), easter.getDate() + 1),    //second day of easter easter+1
-        goodFriday = new Date(year, easter.getMonth(), easter.getDate() - 2),    //good friday easter-2
-        dayOfWork = new Date(year, 4, 1),                                     //fix date: workers' day
-        ascension = new Date(year, easter.getMonth(), easter.getDate() + 39),   //ascension day easter+39
-        pentecoast = new Date(year, easter.getMonth(), easter.getDate() + 49),   //first day of pentecoast easter+49
-        pentecoast2 = new Date(year, easter.getMonth(), easter.getDate() + 50),   //second day of pentecoast easter +50
-        corpusChristi = new Date(year, easter.getMonth(), easter.getDate() + 60),   //corpus christi easter+60
-        unity = new Date(year, 9, 3),     //fix date: german unity day
-        christmas = new Date(year, 11, 25),   //fix date: christmas
-        christmas2 = new Date(year, 11, 26),   //fix date: second day of christmas
+        easter2 = new Date(year, easter.getMonth(), easter.getDate() + 1),    //Ostermontag Ostern+1
+        goodFriday = new Date(year, easter.getMonth(), easter.getDate() - 2),    //Karfreitag Ostern-2
+        dayOfWork = new Date(year, 4, 1),                                     //fixes datum tag der arbeit
+        ascension = new Date(year, easter.getMonth(), easter.getDate() + 39),   //christi himmelfahrt ostern+39
+        pentecoast = new Date(year, easter.getMonth(), easter.getDate() + 49),   //erster pfingsttag ostern+49
+        pentecoast2 = new Date(year, easter.getMonth(), easter.getDate() + 50),   //zweiter pfingsttag ostern +50
+        corpusChristi = new Date(year, easter.getMonth(), easter.getDate() + 60),   //fronleichnam ostern+60
+        unity = new Date(year, 9, 3),     //fixes datum tag der deutschen einheit
+        christmas = new Date(year, 11, 25),   //fixes datum erster weihnachtsfeiertag
+        christmas2 = new Date(year, 11, 26),   //fixes datum zweiter weihnachtsfeiertag
 
     ];
+    //ist aktueller tag ein feiertag ja nein
     for (var i = 0; i < listholidays.length; i++) {
         if (date.getTime() == listholidays[i].getTime()) {
             return document.getElementById("holidayYesNo").innerHTML = "um";
@@ -271,7 +233,7 @@ function holidays() {
 
 };
 
-/*function determines which holiday accurs before and after the current date */
+/*welcher feiertag kommt vor und nach dem aktuellen datum */
 function lastHoliday() {
     let date = new Date();
     let christmasPrev = new Date(date.getFullYear() - 1, 11, 26);
