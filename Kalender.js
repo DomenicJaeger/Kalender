@@ -1,12 +1,5 @@
 window.onload = function () {
     changeTime(new Date());
-    //Buttons funktionieren noch nicht wie gewünscht
-    /*document.getElementById("prevMonthButton").addEventListener("click", function () {
-        changeMonth(-1);
-    });
-    document.getElementById("nextMonthButton").addEventListener("click", function () {
-        changeMonth(1);
-    });*/
 }
 
 function changeTime(newDate) {
@@ -35,8 +28,8 @@ function changeTime(newDate) {
     document.getElementById("calendarTableCaption").innerHTML = html;
 
     getWeekOfMonth(date);
-    holidays();
-    lastHoliday();
+    holidays(newDate);
+    lastHoliday(newDate);
 };
 //Kalenderblatt
 function getCalendarTableCaption(date) {
@@ -118,8 +111,8 @@ function getCalendarTableCaption(date) {
             classAttribute = "holiday";
         }*/
         
-        html += `<td class="calendarDay" onclick="selectDay(this)">`;
-        html += currentDay.getDate();
+        html += `<td class="calendarDay" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth(),i).getTime()})">`;
+        html += i;
         html += `</td>`;
         if (currentDay.getDate() == 0) {
             html += `</tr>`;
@@ -131,20 +124,6 @@ function getCalendarTableCaption(date) {
     }
     html += `</table>`;
     return html;
-}
-//Buttons | funktionieren nocht nicht wie gewünscht
-//Ich glaube das Problem liegt daran dass er sich bei currentDate immer wieder das aktuelle Datum zieht
-function changeMonth(change) {
-    let currentDate = new Date();
-    let newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + change, 1);
-    changeTime(newDate);
-}
-
-//Auswahl eines einzelnen Tages im Kalenderblatt | funktioniert nocht nicht wie gewünscht
-function selectDay(clickedDay) {
-    let allDays = document.querySelectorAll(".calendarDay");
-    allDays.forEach(day => day.classList.remove("selected"));
-    clickedDay.classList.add("selected");
 }
 
 //monatsname auf deutsch ermitteln
@@ -162,7 +141,7 @@ function getWeekOfMonth(date) {
     else if (date.getDate() <= 14) {
         document.getElementById("weekInMonth").innerHTML = "zweite";
     }
-    else if (date.getDate() <= 12) {
+    else if (date.getDate() <= 21) {
         document.getElementById("weekInMonth").innerHTML = "dritte";
     }
     else if (date.getDate() <= 28) {
