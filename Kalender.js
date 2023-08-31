@@ -35,14 +35,14 @@ function changeTime(newDate) {
 function getCalendarTableCaption(date) {
     //Inhalt ändert sich nur an zwei stellen
     let html =  `<table class="kalender">`;
-    html +=         `<button onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()-1,1).getTime()})">Vorheriger Monat</button>`;
-    html +=         `<button onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()+1,1).getTime()})">Nächster Monat</button>`;
     html +=         `<caption colspan="8">`;
     html +=             `<div id="monatheader">`;
     html +=                 `<div class="left">`;
+    html +=         `<button id= "buttonLeft" class= "button" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()-1,1).getTime()})">Vorheriger Monat</button>`;
     html +=                     getMonthGerman(date.getMonth());
     html +=                 `</div>`;
     html +=                 `<div class="right">`;
+    html +=         `<button id= "buttonRight" class= "button" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()+1,1).getTime()})">Nächster Monat</button>`;
     html +=                     date.getFullYear();
     html +=                 `</div>`;
     html +=             `</div>`;
@@ -81,46 +81,44 @@ function getCalendarTableCaption(date) {
 
     //Schleife Tage des Vormonats
     for (let i=dayone; i>1;i--) {
-        html += `<td>${monthlastdate-i+2}</td>`;
+        html += `<td class="nichtMonat">${monthlastdate-i+2}</td>`;
     }
     //Schleife Tage dieses Monats
     for (let i=1;i<=lastdate;i++) {
         let currentDay = new Date(date.getFullYear(), date.getMonth(), i);
-        //für grafische änderungen im css
-        //let classAttribute = "";
+        let classAttribute = "";
         if(currentDay.getDay() == 1) {
             html += `<tr>`;
         }
-        /*
-        //für grafische änderungen im css
-        //check day and add class attribute
-        //if today
-        if (currentDay.getTime() == new Date()) {
-            classAttribute = "today";
+        //Gruppe für ausgewählten Tag
+        if (currentDay.getTime() == date.getTime()) {
+            classAttribute = " today";
         }
-        //if sunday
-        if (currentDay.getDay() == 0) {
-            classAttribute = "sunday";
+        //Gruppe für Sonntag
+        else if (currentDay.getDay() == 0) {
+            classAttribute += " sunday";
         }
-        //if saturday
-        if (currentDay.getDay() ==6) {
-            classAttribute = "saturday";
+        //Gruppe für Samstag
+        else if (currentDay.getDay() ==6) {
+            classAttribute += " saturday";
         }
-        //if holiday
-        if (checkHoliday(day)!=null) {
-            classAttribute = "holiday";
+        //Gruppe für Feiertag
+        /*else if (currentDay.getDay() ==christmas) {
+            classAttribute += " holiday";
         }*/
+        else {classAttribute += "datum";
+        }
         
-        html += `<td class="calendarDay" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth(),i).getTime()})">`;
+        html += `<td class="${classAttribute}" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth(),i).getTime()})">`;
         html += i;
         html += `</td>`;
         if (currentDay.getDate() == 0) {
             html += `</tr>`;
         }
     }
-    //Schleife Tage des nächsten Monats
+    //Schleife Tage des nächsten Monats | onclick noch falsch
     for (let i=dayend;i<7;i++) {
-        html += `<td>${i-dayend+1}</td>`;
+        html += `<td class="nichtMonat">${i-dayend+1}</td>`;
     }
     html += `</table>`;
     return html;

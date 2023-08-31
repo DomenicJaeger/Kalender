@@ -7,7 +7,8 @@
     border-radius:20px;
     grid-template-areas:"head head"
                         "kalender info"
-                        "kalender historie";}
+                        "kalender historie";
+}
 .header{
     grid-column:1/span 2;
     background-color:darkslateblue;
@@ -15,9 +16,42 @@
     color:white;
     align-self:stretch;
     text-align:center;
-    border-radius:20px 20px 0px 0px;}
+    border-radius:20px 20px 0px 0px;
+}
 .selected {
     background-color:blueviolet;
+}
+.button{
+    grid-template-columns:1fr;
+    grid-template-areas:"buttonLeft buttonRight";
+    border-collapse:collapse;
+    border-style:hidden;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:larger;
+    font-weight:bolder;
+    padding: 14px 40px;
+    transition-duration:0.4s;
+    width:380px;
+}
+#buttonLeft{
+    grid-area:buttonLeft;
+    background-color:black;
+    color:white;
+    text-align:start;
+}
+#buttonLeft:hover{
+    background-color:gold;
+    color:darkslateblue;
+}
+#buttonRight{
+    grid-area:buttonRight;
+    background-color:black;
+    color:white;
+    text-align:end;
+}
+#buttonRight:hover{
+    background-color:gold;
+    color:darkslateblue
 }
 .kalender{
     grid-area:kalender;
@@ -28,13 +62,15 @@
     margin-bottom:24px;
     margin-left:24px;
     line-height:50px;
-    box-shadow:10px 10px 10px darkgrey;}
+    box-shadow:10px 10px 10px darkgrey;
+}
 #monatheader{
     display:grid;
     grid-template-columns:1fr;
     grid-template-areas:"mheader1 mheader2";
     border-collapse:collapse;
-    margin-top:5px;}
+    margin-top:5px;
+}
 #monatheader .left{
     grid-area:mheader1;
     font-size:large;
@@ -45,7 +81,8 @@
     line-height:20px;
     padding-left:10px;
     padding-top:10px;
-    padding-bottom:10px;}
+    padding-bottom:10px;
+}
 #monatheader .right{
     grid-area:mheader2;
     font-size:large;
@@ -56,7 +93,8 @@
     line-height:20px;
     padding-right:10px;
     padding-top:10px;
-    padding-bottom:10px;}
+    padding-bottom:10px;
+}
 .wochentag{
     grid-area:wochentag;
     background-color:darkslateblue;
@@ -65,7 +103,8 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     max-width:100px;
     min-width:100px;
-    line-height:30px;}
+    line-height:30px;
+}
 .samstag{
     grid-area:samstag;
     background-color:darkslateblue;
@@ -74,7 +113,8 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     max-width:100px;
     min-width:100px;
-    line-height:30px;}
+    line-height:30px;
+}
 .sonntag{
     grid-area:sonntag;
     background-color:darkslateblue;
@@ -83,43 +123,57 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     max-width:100px;
     min-width:100px;
-    line-height:30px;}
+    line-height:30px;
+}
 .kw{
     max-width:50px;
     min-width:50px;
     background-color:darkslateblue;
     color:white;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .kwdate{
     color:black;
     font-size:small;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .datum{     
     color:darkslateblue;
     font-size:xx-large;
     font-weight:bold;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
-.datumsa{   
-    color:darkslateblue;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.today{
+    color:red;
     font-size:xx-large;
     font-weight:bold;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
-.datumso{   
-    color:darkslateblue;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.saturday{   
+    color:lightslategrey;
     font-size:xx-large;
     font-weight:bold;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
-.nichtmärz{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.sunday{   
+    color:mediumslateblue;
+    font-size:xx-large;
+    font-weight:bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.nichtMonat{
     color:grey;
     font-size:x-large;
     font-weight:bold;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 table,th,td{
     border-collapse:collapse;
     border-style:hidden;
     margin-left:12px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color:linen;}
+    background-color:linen;
+}
 .infotext{  
     grid-area:info;
     grid-column:2;
@@ -133,14 +187,15 @@ table,th,td{
     margin-right:24px;
     background:lavender;
     border-left:7px solid darkslateblue;
-    padding-left:6px;}
+    padding-left:6px;
+}
 .historyhead{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration-line: underline;
     text-align:left;
     color:linen;
     padding-top:-24px;
-    text-shadow:0px 2px 3px lavender;}
+}
 .historie{  
     grid-area:historie;
     grid-column:2;
@@ -154,25 +209,21 @@ table,th,td{
     margin-bottom:24px;
     padding-bottom:24px;
     padding-right:12px;
-    border-radius:10px;}
-.nichtmärz:hover{
-    background-color:khaki;}
+    border-radius:10px;
+}
+.nichtMonat:hover{
+    background-color:khaki;
+}
 .datum:hover{
-    background-color:gold;}
-.datumsa:hover{
-    background-color:gold;}
-.datumso:hover{
-    background-color:gold;}
-/*meta query für überlappende zellen
-@media(max-width:2000px){#wrapper{
-    display:grid;
-    background-image:linear-gradient(lavender, lavender);
-    grid-template-columns:1fr;
-    grid-auto-rows:max-content;
-    align-items:center;
-    border-radius:20px;
-    grid-template-areas:"head"
-                        "kalender"
-                        "kalender"
-                        "info"
-                        "historie";}}*/
+    background-color:gold;
+}
+.saturday:hover{
+    background-color:gold;
+}
+.sunday:hover{
+    background-color:gold;
+}
+.today{
+    background-color:mediumslateblue;
+    color:linen;
+}
