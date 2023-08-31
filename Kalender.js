@@ -28,8 +28,8 @@ function changeTime(newDate) {
     document.getElementById("calendarTableCaption").innerHTML = html;
 
     getWeekOfMonth(date);
-    holidays(newDate);
-    lastHoliday(newDate);
+    holidays(date);
+    lastHoliday(date);
 };
 //Kalenderblatt
 function getCalendarTableCaption(date) {
@@ -182,8 +182,8 @@ function getEasterSunday(year) {
 };
 
 /*Feiertage*/
-function holidays() {
-    let date = new Date();
+function holidays(date) {
+    //let date = new Date();
     let year = date.getFullYear();
     easter = getEasterSunday(year);  //Ostersonntag
     let listholidays = [
@@ -201,6 +201,7 @@ function holidays() {
         christmas2 = new Date(year, 11, 26),   //fixes datum zweiter weihnachtsfeiertag
 
     ];
+    console.log(date)
     //ist aktueller tag ein feiertag ja nein
     for (var i = 0; i < listholidays.length; i++) {
         if (date.getTime() == listholidays[i].getTime()) {
@@ -211,9 +212,9 @@ function holidays() {
 
 };
 
-/*welcher feiertag kommt vor und nach dem aktuellen datum */
-function lastHoliday() {
-    let date = new Date();
+/*welcher feiertag kommt vor und nach dem aktuellen datum | funktioniert nicht mehr richtig statt des ausgewählten wird nur das aktuelle datum verwendet*/
+function lastHoliday(date) {
+    //let date = new Date();
     let christmasPrev = new Date(date.getFullYear() - 1, 11, 26);
     let newYearNxt = new Date(date.getFullYear() + 1, 0, 1);
     if (date.getTime() == newYear.getTime()) {
