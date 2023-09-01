@@ -36,13 +36,15 @@ function getCalendarTableCaption(date) {
     //Inhalt ändert sich nur an zwei stellen
     let html =  `<table class="kalender">`;
     html +=         `<caption colspan="8">`;
+    html +=         `<div id="button">`
+    html +=             `<button id= "buttonLeft" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()-1,1).getTime()})">Vorheriger Monat</button>`;
+    html +=             `<button id= "buttonRight" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()+1,1).getTime()})">Nächster Monat</button>`;
+    html +=         `</div>`
     html +=             `<div id="monatheader">`;
     html +=                 `<div class="left">`;
-    html +=         `<button id= "buttonLeft" class= "button" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()-1,1).getTime()})">Vorheriger Monat</button>`;
     html +=                     getMonthGerman(date.getMonth());
     html +=                 `</div>`;
     html +=                 `<div class="right">`;
-    html +=         `<button id= "buttonRight" class= "button" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()+1,1).getTime()})">Nächster Monat</button>`;
     html +=                     date.getFullYear();
     html +=                 `</div>`;
     html +=             `</div>`;
@@ -75,13 +77,12 @@ function getCalendarTableCaption(date) {
     if (dayend==0) {
         dayend = 7;
     }
-
     //letztes Datum des vorherigen Monats
     let monthlastdate = new Date(date.getFullYear(),date.getMonth(),0).getDate();
 
     //Schleife Tage des Vormonats
     for (let i=dayone; i>1;i--) {
-        html += `<td class="nichtMonat">${monthlastdate-i+2}</td>`;
+        html += `<td class="nichtMonat" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()-1,monthlastdate-i+2).getTime()})">${monthlastdate-i+2}</td>`;
     }
     //Schleife Tage dieses Monats
     for (let i=1;i<=lastdate;i++) {
@@ -94,6 +95,10 @@ function getCalendarTableCaption(date) {
         if (currentDay.getTime() == date.getTime()) {
             classAttribute = " today";
         }
+        //Gruppe für Feiertag
+        else if (holidays(currentDay)) {
+            classAttribute += " holiday";
+        }
         //Gruppe für Sonntag
         else if (currentDay.getDay() == 0) {
             classAttribute += " sunday";
@@ -102,10 +107,6 @@ function getCalendarTableCaption(date) {
         else if (currentDay.getDay() ==6) {
             classAttribute += " saturday";
         }
-        //Gruppe für Feiertag
-        /*else if (currentDay.getDay() ==christmas) {
-            classAttribute += " holiday";
-        }*/
         else {classAttribute += "datum";
         }
         
@@ -118,7 +119,7 @@ function getCalendarTableCaption(date) {
     }
     //Schleife Tage des nächsten Monats | onclick noch falsch
     for (let i=dayend;i<7;i++) {
-        html += `<td class="nichtMonat">${i-dayend+1}</td>`;
+        html += `<td class="nichtMonat" onclick="changeTime(${new Date(date.getFullYear(),date.getMonth()+1,i-dayend+1).getTime()})">${i-dayend+1}</td>`;
     }
     html += `</table>`;
     return html;
@@ -189,26 +190,24 @@ function holidays(date) {
         easter = easter,
         easter2 = new Date(year, easter.getMonth(), easter.getDate() + 1),    //Ostermontag Ostern+1
         goodFriday = new Date(year, easter.getMonth(), easter.getDate() - 2),    //Karfreitag Ostern-2
-        dayOfWork = new Date(year, 4, 1),                                     //fixes datum tag der arbeit
-        ascension = new Date(year, easter.getMonth(), easter.getDate() + 39),   //christi himmelfahrt ostern+39
-        pentecoast = new Date(year, easter.getMonth(), easter.getDate() + 49),   //erster pfingsttag ostern+49
-        pentecoast2 = new Date(year, easter.getMonth(), easter.getDate() + 50),   //zweiter pfingsttag ostern +50
-        corpusChristi = new Date(year, easter.getMonth(), easter.getDate() + 60),   //fronleichnam ostern+60
-        unity = new Date(year, 9, 3),     //fixes datum tag der deutschen einheit
-        christmas = new Date(year, 11, 25),   //fixes datum erster weihnachtsfeiertag
-        christmas2 = new Date(year, 11, 26),   //fixes datum zweiter weihnachtsfeiertag
+        dayOfWork = new Date(year, 4, 1),                                     //fixes Datum Tag der Arbeit
+        ascension = new Date(year, easter.getMonth(), easter.getDate() + 39),   //Christi Himmelfahrt Ostern+39
+        pentecoast = new Date(year, easter.getMonth(), easter.getDate() + 49),   //Erster Pfingsttag ostern+49
+        pentecoast2 = new Date(year, easter.getMonth(), easter.getDate() + 50),   //Zweiter pfingsttag ostern +50
+        corpusChristi = new Date(year, easter.getMonth(), easter.getDate() + 60),   //Fronleichnam ostern+60
+        unity = new Date(year, 9, 3),     //fixes Datum Tag der Deutschen Einheit
+        christmas = new Date(year, 11, 25),   //fixes Datum Erster Weihnachtsfeiertag
+        christmas2 = new Date(year, 11, 26),   //fixes Datum Zweiter Weihnachtsfeiertag
 
     ];
-    console.log(date)
-    //ist aktueller tag ein feiertag ja nein
+    //ist aktueller Tag ein Feiertag ja nein
     for (var i = 0; i < listholidays.length; i++) {
         if (date.getTime() == listholidays[i].getTime()) {
             return document.getElementById("holidayYesNo").innerHTML = "um";
         }
         else { document.getElementById("holidayYesNo").innerHTML = "nicht um" }
     }
-
-};
+}
 
 /*welcher feiertag kommt vor und nach dem aktuellen datum | funktioniert nicht mehr richtig statt des ausgewählten wird nur das aktuelle datum verwendet*/
 function lastHoliday(date) {
